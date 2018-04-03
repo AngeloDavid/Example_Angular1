@@ -1,0 +1,183 @@
+body{
+    /*background-color: #ecedee;*/
+    position: relative;
+}
+p{
+	text-align: justify;
+}
+.container-fluid{
+	padding-left: 6%;
+	padding-right: 6%;
+	
+}
+/*menu del index*/
+#menu{
+	background-color: #2d2f3b;	
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+	border-bottom-color: #313745; 
+}
+
+#menu .aux{
+	color: #e16660;
+}
+#menu  .navbar-right a, #menu .navbar-brand{
+	color: #f1f1f1;
+}
+.navbar-default .navbar-right>.active>a, .navbar-default .navbar-right>.active>a:hover{
+	background-color: #313745;	
+	color: #e16660;
+}
+
+/*Incio*/
+
+#Inicio {
+	padding-top: 2%;
+	background-color: #f16c65;	
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+	border-bottom-color: #e96769; 
+}
+#Inicio .item{
+	text-align: center;
+	padding-left: 3%;
+	padding-right: 3%;
+}
+
+#carousel-example-generic .carousel-control.left,
+#carousel-example-generic .carousel-control.right{
+    background-image: none;
+   color: #c94549;
+}
+/*Our Services*/
+
+#Our_Service{
+	padding-top: 7%;
+	background-color: #f2f2f2;
+	padding-bottom: 5%;
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+	border-bottom-color: #ffffff; 
+}
+
+#Our_Service h1,#Our_Service h4,#Our_Service i{
+	color: #69708b;
+}
+#Our_Service p{
+	color: #a1a5bb;
+	padding-top: 3%;
+	padding-bottom: 3%;
+}
+
+#Our_Service .media-body p{
+	padding-top: 1%
+
+}
+
+#Our_Service .media-left i{
+	font-size: 40px;
+	padding-top: 13%;	
+	border-radius: 30px;
+	border-style: solid;
+	border-width: 2px;
+	text-align: center;
+	width: 60px;
+	height: 60px;
+}
+/* Protafolio*/
+#Portafolio{
+	background-color: #2d2f3b;	
+	color: #656c88;
+	padding-top: 7%;
+	padding-bottom: 5%;
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+	border-bottom-color: #323646; 
+}
+#Portafolio .foto{
+	/*padding: 8px;
+		margin:10px;
+	*/
+	margin-bottom: 2%;
+	
+	text-align: center;
+	/*border:solid 1px #fff;*/	
+}
+#Portafolio .container{
+	padding: 0px;
+	margin: 0px;
+}
+#Portafolio .btns{
+	margin-top: 20px;
+	margin-bottom: 2%;
+}
+#Portafolio .btn{
+	color: #656c88;
+	border: solid 2px #656c88;
+	border-radius: 7px;
+	margin-right: 15px;
+	margin-bottom: 10px;
+	font-weight: bold;
+
+
+}
+#Portafolio .btn:hover,#Portafolio .btn.active{
+	border-color: #f2f2f2;
+	color: #f2f2f2;
+	background-color: #2d2f3b;	
+}
+
+/* contectenos*/
+#Contactenos{
+	background-color: #f16c65;
+	color: #efd1d1;
+	padding-top: 7%;
+	padding-bottom: 5%;
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+	border-bottom-color: #e96769; 
+	/*#ea676c*/
+}
+#Contactenos .divcont{
+	padding-top: 3%;
+	padding-right: 5%;
+}
+#Contactenos .form-control{
+	background-color: #d75650;
+	color:#efd1d1;
+	border: none;
+}
+#Contactenos .btn{
+	border:none;
+	background-color: #cf3c34;	
+	color: #efd1d1;
+	font-weight: bold;
+}
+#Contactenos .btn:hover{
+	border:none;
+	color: #cf3c34;	
+	background-color: #efd1d1;
+	
+}
+
+.form-control::-webkit-input-placeholder { color: #f08587 }
+.form-control:-moz-placeholder { color: #f08587 }
+.form-control::-moz-placeholder { color: #f08587 }
+.form-control:-ms-input-placeholder { color: #f08587}
+
+/*Footer*/
+#footer{
+	color: #656c88;
+	background-color: #2d2f3b;	
+	padding-top: 2%;
+	padding-bottom: 1%;
+}
+#footer .redes i{
+	border-radius: 30px;
+	border-style: solid;
+	border-width: 2px;
+	text-align: center;
+	padding-top: 5px;
+	width: 30px;
+	height: 30px;
+}

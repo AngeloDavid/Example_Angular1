@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html ng-app="indexexamen">
+<head>
+	<title>Examen</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <link href="https://fonts.googleapis.com/css?family=Acme|Architects+Daughter|Indie+Flower" rel="stylesheet">    
+    <link href="./dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./dist/iconos/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./dist/css/flaticon.css">
+    <link href="./dist/css/style.css" rel="stylesheet">
+
+    <script type="text/javascript" src="./dist/js/angular.min.js"></script>
+    <script type="text/javascript" src="./dist/src/examen.js"></script>
+</head>
+<body data-spy="scroll" data-target="#menu">
+	<div id="menu" class="navbar navbar-default navbar-fixed-top">
+	   <div class="container-fluid">
+	      <div class="navbar-header">
+	      	<a class="navbar-brand" href="#">SINGOLO<span class="aux">*</span></a>
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">SINGOLO*</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>    
+	        </div>	        
+	      <div id="navbar" class="navbar-collapse collapse" ng-controller="menu as menu_act">  	      	  
+		      <ul class="nav navbar-nav navbar-right">	        
+		      		<li ng-repeat="opc in menu_act.list"><a  href="{{opc.href}}">{{opc.text}}</a></li>		
+		          </ul>
+		        </li>
+		      </ul>
+	      </div>
+	   </div>
+	</div>h
+	<div id="Inicio" class="container-fluid" ng-controller="inicio as inicio_control">		
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators">
+		    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+		    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+		    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+		  </ol>
+
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner" role="listbox">
+		    <div class="item active">
+		      <img src="./img/slider/s1.jpeg" alt="...">
+		      <div class="carousel-caption">
+		        ...
+		      </div>
+		    </div>
+		    <div class="item" ng-repeat="foto in inicio_control.fotos">
+		      <img ng-src="{{foto.src}}" alt="...">
+		      <div class="carousel-caption">
+		        ...
+		      </div>
+		    </div>	    
+		  </div>
+
+		  <!-- Controls -->
+		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+		  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div>
+	</div>	
+	<div id="Our_Service" class="container-fluid" ng-controller="servicio as serv_control">
+		<h1>{{serv_control.json.titulo_principal}}</h1>
+		<p>{{serv_control.json.texto_principal}}</p>
+		<div>
+			<div class="media col-md-4 col-sm-6" ng-repeat="item in serv_control.json.items" >
+			  <div class="media-left">
+			    <a href="#">
+			      <i class="fa {{item.imagen}} i" aria-hidden="true"></i>
+			    </a>
+			  </div>
+			  <div class="media-body">
+			    <h4 class="media-heading">{{item.titulo}}</h4>
+			    <p> {{item.texto}} </p>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<div id="Portafolio" class="container-fluid" ng-controller="portafolio as portafolio_control">
+		<h1>{{portafolio_control.json.titulo_principal}}</h1>
+		<p>{{portafolio_control.json.texto_principal}}</p>
+		<div class="btns">							
+		<div class="btn-group" role="group" aria-label="...">
+			<a ng-repeat="btn in portafolio_control.json.catgorialist" class="btn" ng-click="portafolio_control.elegira(btn.name)">{{btn.name}}</a>
+		</div>		
+		</div>		
+		<div>			
+			<div class="col-md-3 col-sm-6 foto" ng-repeat="foto in portafolio_control.json.items">			
+			<img ng-src="{{foto.src}}" width="250px" height="200px"  ng-if="foto.categoria == portafolio_control.elecion || 'All' == portafolio_control.elecion">			
+			</div>
+		</div>
+	</div>
+	<div id="Contactenos" class="container-fluid" ng-controller="Contactenos as contactCtrl">
+		<h1>Get a Quote</h1>
+		<p>Fusce tortor risus,tempor facilisis porttitor et, pretium id elit. Mauris sit amet ex interdum, congue sem et, blandit sapien.Mauris sit amet ex interdum, congue sem et, blandit sapien.Mauris sit amet ex interdum, congue sem et, blandit sapien.</p>
+		<div class="col-md-8 col-sm-12 divcont">
+			<div id="mensaje"></div>
+			<form name="form_contact" novalidate>
+			  <div class="form-group">			    
+			    <input type="text" class="form-control" id="name" name="Name" ng-model="datosf.Name" placeholder="Name(Required)" required>
+			    <span class="fa fa-exclamation-circle" aria-hidden="true" ng-show="!form_contact.Name.$pristine && form_contact.Name.$error.required">  El Nombre es requerido.</span>
+			  </div>
+			  <div class="form-group">			    
+			    <input type="email" class="form-control" id="email" name="Email" ng-model="datosf.Email" placeholder="Email(Required)" required>
+			    <span class="fa fa-exclamation-circle" aria-hidden="true" ng-show="!form_contact.Email.$pristine && form_contact.Email.$error.required">  El Email es requerido.</span>
+			    <span class="fa fa-exclamation-circle" aria-hidden="true" ng-show="!form_contact.Email.$pristine && form_contact.Email.$error.email">  Por favor Ingrese un Email valido</span>
+			  </div>
+			  <div class="form-group">			    
+			    <input type="text" class="form-control" id="subject" name="Subject" ng-model="datosf.Subject" placeholder="Subject" required ng-minlength="10">
+			    <span class="fa fa-exclamation-circle" aria-hidden="true" ng-show="!form_contact.Subject.$pristine && form_contact.Subject.$error.required">  Un Asunto es requerido.</span>
+			    <span class="fa fa-exclamation-circle" aria-hidden="true" ng-show="!form_contact.Subject.$pristine && form_contact.Subject.$error.minlength">  Minimo caracteres: 10.</span>
+			  </div>		  
+			  <div class="form-group">			    
+			  	<textarea class="form-control" rows="3" id="txtms" name="Mensaje" ng-model="datosf.Mensaje" placeholder="Describe you proyect ...." required ng-minlength="20"></textarea>
+			  	<span class="fa fa-exclamation-circle" aria-hidden="true" ng-show="!form_contact.Mensaje.$pristine && form_contact.Mensaje.$error.required">  El Mensaje es requerido.</span>
+			  	<span class="fa fa-exclamation-circle" aria-hidden="true" ng-show="!form_contact.Mensaje.$pristine && form_contact.Mensaje.$error.minlength">  Minimo caracteres: 20.</span>
+			  </div>
+			  <button type="submit" class="btn btn-default" ng-click="contactCtrl.enviarDatos(datosf)" ng-disabled='!form_contact.$valid' >Enviar</button>
+			  <span  class="fa fa-exclamation-triangle" aria-hidden="true" ng-show="!form_contact.Subject.$pristine && !form_contact.Email.$pristine && !form_contact.Mensaje.$pristine && !form_contact.$valid">
+			  <strong>Datos Incorrectos!!!</strong>  Por favor, revise que la informacion sea correcta </span>
+			</form>
+		</div>
+		<div class="col-md-4 col-sm-12">
+			<h3>Contact Information</h3>
+			<p>Fusce tortor risus,tempor facilisis porttitor et, pretium id elit. Mauris sit amet ex interdum, congue sem et, blandit sapien.Mauris sit amet ex interdum, congue sem et, blandit sapien.Mauris sit amet ex interdum, congue sem et, blandit sapien.</p>
+			<br>
+			<br>
+			<div class= "info">
+				<i class="fa fa-map-marker" aria-hidden="true"> Elsddn N57-203 y Av. dloed</i><br>
+				<i class="fa fa-phone" aria-hidden="true"> 0965214356</i><br>
+				<i class="fa fa-envelope" aria-hidden="true"> info@singolo.com</i><br>
+			</div>
+		</div>
+	</div>
+	<div id="footer" class="container-fluid">
+		<div class="col-md-9 col-sm-5 col-xs-5"><i class="fa fa-copyright" aria-hidden="true">2014 Copyrigh</i></div>
+		<div class="col-md-3 col-sm-7 col-xs-7 redes">
+			<i class="fa fa-facebook" aria-hidden="true"></i>
+			<i class="fa fa-google-plus" aria-hidden="true"></i>
+			<i class="fa fa-twitter" aria-hidden="true"></i>
+			<i class="fa fa-linkedin" aria-hidden="true"></i>
+		</div>
+	</div>
+
+ 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./dist/js/bootstrap.min.js"></script>
+</body>
+</html>
